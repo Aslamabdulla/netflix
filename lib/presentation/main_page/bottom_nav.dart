@@ -44,7 +44,7 @@ class BottomNavigationWidget extends StatelessWidget {
                 label: 'Search'),
             BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.download_rounded,
+                  Icons.download_for_offline_rounded,
                 ),
                 label: 'Downloads'),
           ]),

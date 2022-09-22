@@ -32,13 +32,19 @@ dependencies:
   bordered_text: ^2.0.0
   build_runner: ^2.2.1
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  dio: ^4.0.6
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
-  freezed: ^2.1.1
+  freezed: null
+  get_it: ^7.2.0
   google_fonts: ^3.0.1
+  injectable: ^1.5.3
+  injectable_generator: ^1.5.3
   json_annotation: ^4.7.0
   json_serializable: ^6.4.0
+
   video_player: ^2.4.7
 
 dev_dependencies:

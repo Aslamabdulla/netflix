@@ -43,6 +43,7 @@ dependencies:
   google_fonts: ^3.0.1
   injectable: ^1.5.3
   injectable_generator: ^1.5.3
+  intl: ^0.17.0
   json_annotation: ^4.7.0
   json_serializable: ^6.4.0
   share_plus: ^4.4.0

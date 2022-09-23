@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:netflix/application/hot_and_new_bloc/hot_and_new_bloc.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
@@ -120,16 +121,30 @@ class ComingSoonlist extends StatelessWidget {
               if (movie.id == null) {
                 return const SizedBox();
               }
+              String month = '';
+              String date = '';
+              try {
+                final _date = DateTime.parse(movie.releaseDate!);
+                final formattedDate = DateFormat.yMMMMd('en_US').format(_date);
+                month = formattedDate
+                    .split(' ')
+                    .first
+                    .substring(0, 3)
+                    .toUpperCase();
+                date = movie.releaseDate!.split('-')[1];
+              } catch (_) {
+                month = 'TBA';
+                date = '';
+              }
 
               return ComingSoonWidget(
-                id: movie.id.toString(),
-                month: 'MAR',
-                backdropPath: "$imageAppendurl${movie.backdropPath}",
-                posterPath: "$imageAppendurl${movie.posterPath}",
-                movieName: movie.originalTitle ?? 'No Title',
-                description: movie.overview ?? "NO Descriptiob",
-                day: "11",
-              );
+                  id: movie.id.toString(),
+                  month: month,
+                  backdropPath: "$imageAppendurl${movie.backdropPath}",
+                  posterPath: "$imageAppendurl${movie.posterPath}",
+                  movieName: movie.originalTitle ?? 'No Title',
+                  description: movie.overview ?? "NO Descriptiob",
+                  day: date);
             },
           );
         }

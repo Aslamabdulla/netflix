@@ -33,3 +33,5 @@ TextStyle kTextStyle18 = TextStyle(
   fontFamily: 'BebasNeue',
   color: kGreyColor,
 );
+
+const imageAppendurl = 'https://image.tmdb.org/t/p/w500';

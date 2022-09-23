@@ -1,25 +1,33 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/custom-button_widget.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/video_widgets.dart';
 
 class Evoryoneswatchingwidget extends StatelessWidget {
+  final String backdropPath;
+  final String movieName;
+  final String description;
   const Evoryoneswatchingwidget({
     Key? key,
+    required this.backdropPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           kHeight,
           Text(
-            "Friends",
+            movieName,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
@@ -28,13 +36,12 @@ class Evoryoneswatchingwidget extends StatelessWidget {
           ),
           kHeight,
           Text(
-            "This hit sitcom follows the merry misadventures of six 20 -something pals as they navigate the pitfalls of work,life and love in1990's Manhattan",
+            description,
+            maxLines: 3,
             style: TextStyle(color: kGreyColor, fontWeight: FontWeight.w500),
           ),
           kHeight50,
-          VideoWidget(
-              image:
-                  "https://www.themoviedb.org/t/p/original/bI37vIHSH7o4IVkq37P8cfxQGMx.jpg"),
+          VideoWidget(image: backdropPath),
           kHeight,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

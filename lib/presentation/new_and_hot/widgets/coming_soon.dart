@@ -1,14 +1,30 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/custom-button_widget.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/video_widgets.dart';
 
 class ComingSoonWidget extends StatelessWidget {
+  final String id;
+  final String month;
+  final String day;
+  final String backdropPath;
+  final String posterPath;
+  final String movieName;
+  final String description;
   const ComingSoonWidget({
     Key? key,
+    required this.id,
+    required this.month,
+    required this.day,
+    required this.backdropPath,
+    required this.posterPath,
+    required this.movieName,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -24,11 +40,11 @@ class ComingSoonWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "FEB",
+                  month,
                   style: kTextStyle18,
                 ),
                 Text(
-                  "11",
+                  day,
                   style: kTextStyle30,
                 )
               ],
@@ -40,17 +56,20 @@ class ComingSoonWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                VideoWidget(
-                    image:
-                        "https://www.themoviedb.org/t/p/original/j7FnrXS9auRjRPanb4qGa1xiCEP.jpg"),
+                VideoWidget(image: backdropPath),
                 Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("TALL GIRL 2",
-                        style: GoogleFonts.amaticSc(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        )),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 1.8,
+                      child: Text(movieName,
+                          maxLines: 1,
+                          overflow: TextOverflow.clip,
+                          style: GoogleFonts.amaticSc(
+                            fontSize: MediaQuery.of(context).size.width * .07,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ),
                     Spacer(),
                     Row(
                       children: [
@@ -73,7 +92,7 @@ class ComingSoonWidget extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "Coming on Friday",
+                  "Coming on $day $month",
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
@@ -83,7 +102,7 @@ class ComingSoonWidget extends StatelessWidget {
                       "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"),
                 ),
                 Text(
-                  "Tall Girl 2",
+                  movieName,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -92,7 +111,8 @@ class ComingSoonWidget extends StatelessWidget {
                 ),
                 kHeight,
                 Text(
-                  "Landing the lead in the school musical is a dream come true for jodi,until the pressure sends her confidence--and her relationship -- into a tailspin. ",
+                  description,
+                  maxLines: 5,
                   style:
                       TextStyle(color: kGreyColor, fontWeight: FontWeight.w500),
                 )

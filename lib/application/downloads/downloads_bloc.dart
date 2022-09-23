@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:netflix/core/failures/main_failures.dart';
 import 'package:netflix/domain/i_sownloads_repo.dart';
 
@@ -10,6 +13,7 @@ part 'downloads_event.dart';
 part 'downloads_state.dart';
 part 'downloads_bloc.freezed.dart';
 
+@injectable
 class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
   final IDownloadsRepo _downloadsRepo;
   DownloadsBloc(this._downloadsRepo) : super(DownloadsState.intial()) {
@@ -18,6 +22,7 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
           IsLoading: true, downloadsFailureOrSuccessOption: None()));
       final Either<MainFailures, List<Downloads>> downloadsoption =
           await _downloadsRepo.getDownloadsImages();
+      log(downloadsoption.toString());
       emit(downloadsoption.fold(
           (failure) => state.copyWith(
               IsLoading: false,

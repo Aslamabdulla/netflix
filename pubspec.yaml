@@ -38,13 +38,14 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.1
   freezed: null
+  freezed_annotation: null
   get_it: ^7.2.0
   google_fonts: ^3.0.1
   injectable: ^1.5.3
   injectable_generator: ^1.5.3
   json_annotation: ^4.7.0
   json_serializable: ^6.4.0
-
+  share_plus: ^4.4.0
   video_player: ^2.4.7
 
 dev_dependencies:

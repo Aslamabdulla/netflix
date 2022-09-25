@@ -43,7 +43,7 @@ class NumberCard extends StatelessWidget {
             child: Text(
               "${index + 1}",
               style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 120,
                   color: kBlackColor,
                   fontFamily: 'BebasNeue',
                   fontWeight: FontWeight.bold,

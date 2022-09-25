@@ -91,9 +91,15 @@ class ScreenHome extends StatelessWidget {
                               ),
                               kWidth,
                               Container(
-                                width: 30,
+                                width: 35,
                                 height: 30,
-                                color: Colors.blue,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                  image: NetworkImage(
+                                    "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg",
+                                  ),
+                                  fit: BoxFit.contain,
+                                )),
                               ),
                               kWidth,
                             ],

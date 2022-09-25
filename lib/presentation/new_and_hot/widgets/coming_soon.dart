@@ -7,6 +7,7 @@ import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/custom-button_widget.dart';
 import 'package:netflix/presentation/new_and_hot/widgets/video_widgets.dart';
+import 'package:sticky_headers/sticky_headers/widget.dart';
 
 class ComingSoonWidget extends StatelessWidget {
   final String id;
@@ -33,10 +34,8 @@ class ComingSoonWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: [
-          SizedBox(
-            width: 50,
-            height: 450,
-            child: Column(
+          StickyHeader(
+            header: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
@@ -48,6 +47,10 @@ class ComingSoonWidget extends StatelessWidget {
                   style: kTextStyle30,
                 )
               ],
+            ),
+            content: SizedBox(
+              width: 50,
+              height: 450,
             ),
           ),
           SizedBox(
@@ -66,7 +69,7 @@ class ComingSoonWidget extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.clip,
                           style: GoogleFonts.amaticSc(
-                            fontSize: MediaQuery.of(context).size.width * .07,
+                            fontSize: MediaQuery.of(context).size.width * .08,
                             fontWeight: FontWeight.bold,
                           )),
                     ),
@@ -76,15 +79,15 @@ class ComingSoonWidget extends StatelessWidget {
                         CustomButtonWidget(
                           icon: Icons.notifications,
                           title: "Remind me",
-                          iconSize: 20,
-                          textSize: 12,
+                          iconSize: 18,
+                          textSize: 10,
                         ),
                         kWidth,
                         CustomButtonWidget(
                           icon: Icons.info,
                           title: "Info",
-                          iconSize: 20,
-                          textSize: 12,
+                          iconSize: 18,
+                          textSize: 10,
                         ),
                         kWidth
                       ],
@@ -93,7 +96,10 @@ class ComingSoonWidget extends StatelessWidget {
                 ),
                 Text(
                   "Coming on $day $month",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.width * .035,
+                  ),
                 ),
                 SizedBox(
                   width: 50,
@@ -101,14 +107,11 @@ class ComingSoonWidget extends StatelessWidget {
                   child: Image.network(
                       "https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"),
                 ),
-                Text(
-                  movieName,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: kWhiteColor,
-                  ),
-                ),
+                Text(movieName,
+                    style: GoogleFonts.amaticSc(
+                      fontSize: MediaQuery.of(context).size.width * .06,
+                      fontWeight: FontWeight.bold,
+                    )),
                 kHeight,
                 Text(
                   description,

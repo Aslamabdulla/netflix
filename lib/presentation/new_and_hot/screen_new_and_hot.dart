@@ -22,44 +22,58 @@ class ScreenNewAndHot extends StatelessWidget {
       child: Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size.fromHeight(90),
-            child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              title: const Text(
-                "New & Hot",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                title: Padding(
+                  padding: EdgeInsets.only(bottom: 5, top: 5),
+                  child: const Text(
+                    "New & Hot",
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900),
+                  ),
+                ),
+                actions: [
+                  const Icon(
+                    Icons.cast,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  kWidth,
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                      image: NetworkImage(
+                        "https://ih0.redbubble.net/image.618427277.3222/flat,1000x1000,075,f.u2.jpg",
+                      ),
+                      fit: BoxFit.contain,
+                    )),
+                  ),
+                  kWidth,
+                ],
+                bottom: TabBar(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    isScrollable: true,
+                    unselectedLabelColor: kWhiteColor,
+                    labelColor: kBlackColor,
+                    labelStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.bold),
+                    indicator: BoxDecoration(
+                        borderRadius: kRadius30, color: kWhiteColor),
+                    tabs: [
+                      const Tab(
+                        height: 35,
+                        text: "🍿 Coming Soon",
+                      ),
+                      const Tab(
+                        height: 35,
+                        text: "👀 Everyone's watching",
+                      )
+                    ]),
               ),
-              actions: [
-                const Icon(
-                  Icons.cast,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                kWidth,
-                Container(
-                  width: 30,
-                  height: 30,
-                  color: Colors.blue,
-                ),
-              ],
-              bottom: TabBar(
-                  isScrollable: true,
-                  unselectedLabelColor: kWhiteColor,
-                  labelColor: kBlackColor,
-                  labelStyle: const TextStyle(
-                      fontSize: 14, fontWeight: FontWeight.bold),
-                  indicator: BoxDecoration(
-                      borderRadius: kRadius30, color: kWhiteColor),
-                  tabs: [
-                    const Tab(
-                      height: 35,
-                      text: "🍿 Coming Soon",
-                    ),
-                    const Tab(
-                      height: 35,
-                      text: "👀 Everyone's watching",
-                    )
-                  ]),
             ),
           ),
           body: TabBarView(children: [

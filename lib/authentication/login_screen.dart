@@ -55,7 +55,7 @@ class _LoginAuthenticationState extends State<LoginAuthentication> {
               TextButton.icon(
                 label: const Text(
                   "Login",
-                  style: TextStyle(color: kWhiteColor, fontSize: 18),
+                  style: TextStyle(color: kWhiteColor, fontSize: 16),
                 ),
                 icon: const Icon(
                   Icons.login_outlined,

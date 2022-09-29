@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/core/colors/colors.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/home/widgets/background_card.dart';
+import 'package:netflix/presentation/home/widgets/categories.dart';
 import 'package:netflix/presentation/home/widgets/custom-button_widget.dart';
 import 'package:netflix/presentation/home/widgets/text_home_nav.dart';
 import 'package:netflix/presentation/widgets/main_title_card.dart';
@@ -72,9 +73,10 @@ class ScreenHome extends StatelessWidget {
                   ? AnimatedContainer(
                       duration: Duration(milliseconds: 3000),
                       width: double.infinity,
-                      height: 100,
+                      height: 120,
                       color: Colors.black.withOpacity(0.3),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Row(
                             children: [
@@ -105,11 +107,14 @@ class ScreenHome extends StatelessWidget {
                             ],
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
+                              kWidth5,
                               TextHomeNav(text: "TV Shows"),
+                              kWidth30,
                               TextHomeNav(text: "Movies"),
-                              TextHomeNav(text: "Categories"),
+                              kWidth5,
+                              CategoriesDrop(text: "Categories"),
                             ],
                           )
                         ],

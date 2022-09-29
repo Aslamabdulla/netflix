@@ -4,8 +4,18 @@ import 'package:netflix/core/colors/colors.dart';
 const kWidth = SizedBox(
   width: 10,
 );
+const kWidth30 = SizedBox(
+  width: 30,
+);
+
+const kWidth5 = SizedBox(
+  width: 5,
+);
 const kHeight = SizedBox(
   height: 10,
+);
+const kHeight5 = SizedBox(
+  height: 5,
 );
 const kHeight20 = SizedBox(
   height: 20,

@@ -15,7 +15,7 @@ class BiometricHelper {
   Future<bool> authenticate() async {
     final bool didAuthenticate = await _authentication.authenticate(
         localizedReason: 'Please Authenticate to Procees',
-        options: AuthenticationOptions(biometricOnly: true));
+        options: AuthenticationOptions(biometricOnly: false));
     return didAuthenticate;
   }
 }
